@@ -9,10 +9,10 @@ A set (currently only one) of very simple models for [Minetest](https://www.mine
 
 #### Models
 
-- [double_node](https://opengameart.org/node/129635)
+- [node_1x2x1](https://opengameart.org/node/129635)
 	- for nodes with dimensions 1x2x1
 
-![double_node_preview](previews/model.png) ![double_node_texture_map](previews/texture_map.png)
+![node_1x2x1_preview](previews/model.png) ![node_1x2x1_texture_map](previews/texture_map.png)
 
 ### Licensing
 
