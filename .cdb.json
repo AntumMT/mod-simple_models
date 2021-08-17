@@ -1,0 +1,11 @@
+{
+	"type": "MOD",
+	"name": "simple_models",
+	"title": "Simple Models",
+	"short_description": "Very simple models.",
+	"license": "CC0-1.0",
+	"tags": ["building", "decorative"],
+	"repo": "https://github.com/AntumMT/mod-simple_models",
+	"issue_tracker": "https://github.com/AntumMT/mod-simple_models/issues",
+	"forums": 27177
+}
