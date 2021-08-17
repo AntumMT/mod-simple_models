@@ -20,4 +20,5 @@ A set (currently only one) of very simple models for [Minetest](https://www.mine
 
 ### Links
 
+- [Forum](https://forum.minetest.net/viewtopic.php?t=27177)
 - [Git repo](https://github.com/AntumMT/mod-simple_models)
