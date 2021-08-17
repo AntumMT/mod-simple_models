@@ -9,7 +9,7 @@ A set (currently only one) of very simple models for [Minetest](https://www.mine
 
 #### Models
 
-- double_node
+- [double_node](https://opengameart.org/node/129635)
 	- for nodes with dimensions x=1, y=2
 
 ![double_node_preview](previews/model.png) ![double_node_texture_map](previews/texture_map.png)
