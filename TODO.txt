@@ -1,3 +1,4 @@
 
 TODO:
 - add door models
+- add some methods for getting model collisionbox, etc.
