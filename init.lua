@@ -15,4 +15,12 @@ simple_models = {
 		mesh = "simple_models_cube_1x2x1.obj",
 		box = {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5},
 	},
+
+	--- @table simple_models.panel_1x2x1
+	--  @tfield string mesh simple_models_panel_1x2x1.obj
+	--  @tfield table box {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
+	panel_1x2x1 = {
+		mesh = "simple_models_panel_1x2x1.obj",
+		box = {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45},
+	},
 }
