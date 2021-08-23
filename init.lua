@@ -59,6 +59,47 @@ if not core.global_exists("smodel") then
 end
 
 
+--- Helper method for inward opening door-like nodes.
+--
+--  @function simple_models:door_inward_open
+--  @tparam vector pos Position of node.
+--  @tparam string new_node Technical name of node replacement.
+simple_models.door_inward_open = function(self, pos, new_node)
+	local node = core.get_node_or_nil(pos)
+	if not node then return end
+
+	local rot = node.param2-1
+	if rot < 0 then
+		rot = 3
+	end
+	core.swap_node(pos, {
+		name = new_node,
+		param1 = node.param1,
+		param2 = rot,
+	})
+end
+
+--- Helper method for inward closing door-like nodes.
+--
+--  @function simple_models:door_inward_close
+--  @tparam vector pos Position of node.
+--  @tparam string new_node Technical name of node replacement.
+simple_models.door_inward_close = function(self, pos, new_node)
+	local node = core.get_node_or_nil(pos)
+	if not node then return end
+
+	local rot = node.param2+1
+	if rot > 3 then
+		rot = 0
+	end
+	core.swap_node(pos, {
+		name = "simple_models:door",
+		param1 = node.param1,
+		param2 = rot,
+	})
+end
+
+
 if core.settings:get_bool("simple_models.enable_samples", false) then
 	dofile(core.get_modpath(core.get_current_modname()) .. "/samples.lua")
 end

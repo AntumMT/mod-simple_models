@@ -93,15 +93,7 @@ core.register_node("simple_models:door", {
 	groups = {oddly_breakable_by_hand=1},
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-		local rot = node.param2-1
-		if rot < 0 then
-			rot = 3
-		end
-		core.swap_node(pos, {
-			name = "simple_models:door_open",
-			param1 = node.param1,
-			param2 = rot,
-		})
+		smodel:door_inward_open(pos, "simple_models:door_open")
 		if core.global_exists("sounds") and sounds.door_open then
 			sounds.door_open()
 		end
@@ -128,15 +120,7 @@ core.register_node("simple_models:door_open", {
 	drop = "simple_models:door",
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-		local rot = node.param2+1
-		if rot > 3 then
-			rot = 0
-		end
-		core.swap_node(pos, {
-			name = "simple_models:door",
-			param1 = node.param1,
-			param2 = rot,
-		})
+		smodel:door_inward_close(pos, "simple_models:door")
 		if core.global_exists("sounds") and sounds.door_open then
 			sounds.door_open()
 		end
