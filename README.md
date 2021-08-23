@@ -5,14 +5,47 @@
 
 A set (currently only one) of very simple models for [Minetest](https://www.minetest.net/).
 
-![screenshot](screenshot.png)
+<img src="screenshot.png" width="350px" />
+
+### Usage
 
 #### Models
 
-- [node_1x2x1](https://opengameart.org/node/129635)
-	- for nodes with dimensions 1x2x1
+[simple_models_cube_1x2x1](https://opengameart.org/node/129635):
+- for nodes with dimensions 1x2x1
 
-![node_1x2x1_preview](previews/model.png) ![node_1x2x1_texture_map](previews/texture_map.png)
+- preview:
+  <img src="previews/cube_1x2x1_model.png" />
+
+- texture map:
+  <img src="previews/cube_1x2x1_map.png" />
+
+simple_models_panel_1x2x1:
+- for door or panel-like nodes with dimensions 1x2x1
+
+- preview:
+  <img src="previews/panel_1x2x1_model.png" />
+
+- texture map:
+  <img src="previews/panel_1x2x1_map.png" />
+
+#### Tables
+
+`smodel` is an alias of `simple_models`.
+
+There are some tables for accessing pre-defined attributes:
+
+```
+simple_models.cube_1x2x1:
+- fields:
+	- mesh: "simple_models_cube_1x2x1.obj"
+	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5}
+
+simple_models.panel_1x2x1:
+- fields:
+	- mesh: "simple_models_panel_1x2x1.obj"
+	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
+```
 
 ### Licensing
 
