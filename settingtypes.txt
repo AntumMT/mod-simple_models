@@ -1,0 +1,3 @@
+
+# Enables some sample nodes using models.
+simple_models.enable_samples (Enable node samples) bool false

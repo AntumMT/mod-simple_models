@@ -57,3 +57,8 @@ simple_models.panel_rear = simple_models.panel_rear_1x2x1
 if not core.global_exists("smodel") then
 	smodel = simple_models
 end
+
+
+if core.settings:get_bool("simple_models.enable_samples", false) then
+	dofile(core.get_modpath(core.get_current_modname()) .. "/samples.lua")
+end

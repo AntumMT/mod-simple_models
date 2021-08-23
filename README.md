@@ -18,7 +18,7 @@ A set of very simple models for [Minetest](https://www.minetest.net/).
   <img src="previews/cube_1x2x1_model.png" />
 
 - texture map:
-  <img src="previews/cube_1x2x1_map.png" />
+  <img src="textures/simple_models_sample_cube_1x2x1_map.png" />
 
 simple_models_panel_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1
@@ -27,7 +27,7 @@ simple_models_panel_1x2x1:
   <img src="previews/panel_1x2x1_model.png" />
 
 - texture map:
-  <img src="previews/panel_1x2x1_map.png" />
+  <img src="textures/simple_models_sample_panel_1x2x1_map.png" />
 
 simple_models_panel_rear_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1 positioned at rear
