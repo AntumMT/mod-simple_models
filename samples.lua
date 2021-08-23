@@ -17,7 +17,7 @@ core.register_node("simple_models:node_tall", {
 })
 
 core.register_node("simple_models:panel", {
-	description = "Panel",
+	description = "Front Panel",
 	drawtype = "mesh",
 	tiles = {"simple_models_sample_panel_1x2x1_map.png"},
 	mesh = smodel.panel.mesh,
@@ -47,7 +47,7 @@ core.register_node("simple_models:panel", {
 })
 
 core.register_node("simple_models:panel_rear", {
-	description = "Panel",
+	description = "Rear Panel",
 	drawtype = "mesh",
 	tiles = {"simple_models_sample_panel_1x2x1_map.png"},
 	mesh = smodel.panel_rear.mesh,
@@ -77,7 +77,7 @@ core.register_node("simple_models:panel_rear", {
 })
 
 core.register_node("simple_models:door", {
-	description = "Door",
+	description = "Closed Door",
 	drawtype = "mesh",
 	tiles = {"simple_models_sample_panel_1x2x1_map.png"},
 	mesh = smodel.panel.mesh,
@@ -111,7 +111,7 @@ core.register_node("simple_models:door", {
 })
 
 core.register_node("simple_models:door_open", {
-	description = "Door",
+	description = "Open Door",
 	drawtype = "mesh",
 	tiles = {"simple_models_sample_panel_1x2x1_map.png"},
 	mesh = smodel.panel_rear.mesh,
