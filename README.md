@@ -29,6 +29,10 @@ simple_models_panel_1x2x1:
 - texture map:
   <img src="previews/panel_1x2x1_map.png" />
 
+simple_models_panel_rear_1x2x1:
+- for door or panel-like nodes with dimensions 1x2x1 positioned at rear
+- same texture map as simple_models_panel_1x2x1
+
 #### Tables
 
 `smodel` is an alias of `simple_models`.
@@ -45,6 +49,11 @@ simple_models.panel_1x2x1:
 - fields:
 	- mesh: "simple_models_panel_1x2x1.obj"
 	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
+
+simple_models.panel_rear_1x2x1:
+- fields:
+	- mesh: "simple_models_panel_rear_1x2x1.obj"
+	- box:  {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
 ```
 
 ### Licensing
