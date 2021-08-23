@@ -72,7 +72,8 @@ Sample nodes include:
 
 ### Licensing
 
-- [Creative Commons Zero (CC0) 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Code: [MIT](LICENSE.txt)
+- Models & Textures: [Creative Commons Zero (CC0) 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Links
 
