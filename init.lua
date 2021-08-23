@@ -24,3 +24,12 @@ simple_models = {
 		box = {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45},
 	},
 }
+
+--- Global table.
+--
+--  Alias of `simple_models`
+--
+--  @table smodel
+if not core.global_exists("smodel") then
+	smodel = simple_models
+end
