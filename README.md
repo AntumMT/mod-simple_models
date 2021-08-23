@@ -44,16 +44,19 @@ simple_models.cube_1x2x1:
 - fields:
 	- mesh: "simple_models_cube_1x2x1.obj"
 	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5}
+- alias: simple_models.cube
 
 simple_models.panel_1x2x1:
 - fields:
 	- mesh: "simple_models_panel_1x2x1.obj"
 	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
+- alias: simple_models.panel
 
 simple_models.panel_rear_1x2x1:
 - fields:
 	- mesh: "simple_models_panel_rear_1x2x1.obj"
 	- box:  {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
+- alias: simple_models.panel_rear
 ```
 
 ### Licensing

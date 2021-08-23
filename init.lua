@@ -8,7 +8,11 @@
 --
 --  @table simple_models
 simple_models = {
-	--- @table simple_models.cube_1x2x1
+	--- Cube
+	--
+	--  Alias: simple_models.cube
+	--
+	--  @table simple_models.cube_1x2x1
 	--  @tfield string mesh simple_models_cube_1x2x1.obj
 	--  @tfield table box {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5}
 	cube_1x2x1 = {
@@ -16,7 +20,11 @@ simple_models = {
 		box = {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5},
 	},
 
-	--- @table simple_models.panel_1x2x1
+	--- Panel
+	--
+	--  Alias: simple_models.panel
+	--
+	--  @table simple_models.panel_1x2x1
 	--  @tfield string mesh simple_models_panel_1x2x1.obj
 	--  @tfield table box {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
 	panel_1x2x1 = {
@@ -24,7 +32,11 @@ simple_models = {
 		box = {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45},
 	},
 
-	--- @table simple_models.panel_rear_1x2x1
+	--- Rear panel
+	--
+	--  Alias: simple_models.panel_rear
+	--
+	--  @table simple_models.panel_rear_1x2x1
 	--  @tfield string mesh simple_models_panel_rear_1x2x1.obj
 	--  @tfield table box {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
 	panel_rear_1x2x1 = {
@@ -32,6 +44,10 @@ simple_models = {
 		box = {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5},
 	},
 }
+
+simple_models.cube = simple_models.cube_1x2x1
+simple_models.panel = simple_models.panel_1x2x1
+simple_models.panel_rear = simple_models.panel_rear_1x2x1
 
 --- Global table.
 --
