@@ -125,6 +125,7 @@ core.register_node("simple_models:door_open", {
 	},
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand=1},
+	drop = "simple_models:door",
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
 		local rot = node.param2+1
@@ -141,5 +142,14 @@ core.register_node("simple_models:door_open", {
 		end
 
 		return stack
+	end,
+
+	after_place_node = function(pos, placer, stack, pointed_thing)
+		local node = core.get_node(pos)
+		core.swap_node(pos, {
+			name = "simple_models:door",
+			param1 = node.param1,
+			param2 = node.param2,
+		})
 	end,
 })
