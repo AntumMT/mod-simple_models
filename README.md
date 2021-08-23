@@ -59,6 +59,17 @@ simple_models.panel_rear_1x2x1:
 - alias: simple_models.panel_rear
 ```
 
+#### Samples
+
+To use sample nodes, enable the setting `simple_models.enable_samples`.
+
+Sample nodes include:
+- simple_models:node_tall
+- simple_models:panel
+- simple_models:panel_rear
+- simple_models:door
+- simple_models:door_open
+
 ### Licensing
 
 - [Creative Commons Zero (CC0) 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
