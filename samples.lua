@@ -149,7 +149,7 @@ core.register_node("simple_models:door_l_in_open", {
 		fixed = smodel.panel_rear.box,
 	},
 	paramtype2 = "facedir",
-	groups = {oddly_breakable_by_hand=1},
+	groups = {oddly_breakable_by_hand=1, not_in_creative_inventory=1},
 	drop = "simple_models:door_l_in_closed",
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
@@ -208,6 +208,7 @@ for _, state in ipairs({"closed", "open"}) do
 	else
 		door_def.description = "Door L (outward opening)"
 		door_def.drop = "simple_models:door_l_out_closed"
+		door_def.groups.not_in_creative_inventory = 1
 
 		door_def.on_rightclick = function(pos, node, clicker, stack, pointed_thing)
 			smodel:door_outward_close(pos, "simple_models:door_l_out_closed")
