@@ -1,12 +1,14 @@
 
 ## Simple Models
 
+---
 ### Description
 
 A set of very simple models for [Minetest](https://www.minetest.net/) & API for handling them.
 
 <img src="screenshot.png" width="350px" />
 
+---
 ### Usage
 
 #### Models
@@ -69,19 +71,6 @@ simple_models.panel_rear_1x2x1:
 - alias: simple_models.panel_rear
 ```
 
-#### Samples
-
-To use sample nodes, enable the setting `simple_models.enable_samples`.
-
-Sample nodes include:
-- simple_models:node_tall
-- simple_models:panel
-- simple_models:panel_rear
-- simple_models:door_l_in_closed
-- simple_models:door_l_in_open
-- simple_models:door_l_out_closed
-- simple_models:door_l_out_open
-
 #### Helper Methods
 
 There are some helper methods to make opening & closing door-like nodes simpler. They take the parameters `pos`, `new_node`, & `invert`:
@@ -117,11 +106,27 @@ core.register_node("simple_models:door_r_closed", {
 })
 ```
 
+---
+### Samples
+
+To use sample nodes, enable the setting `simple_models.enable_samples`.
+
+Sample nodes include:
+- simple_models:node_tall
+- simple_models:panel
+- simple_models:panel_rear
+- simple_models:door_l_in_closed
+- simple_models:door_l_in_open
+- simple_models:door_l_out_closed
+- simple_models:door_l_out_open
+
+---
 ### Licensing
 
 - Code: [MIT](LICENSE.txt)
 - Models & Textures: [Creative Commons Zero (CC0) 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
+---
 ### Links
 
 - [![ContentDB](https://content.minetest.net/packages/AntumDeluge/simple_models/shields/title/)](https://content.minetest.net/packages/AntumDeluge/simple_models/)
