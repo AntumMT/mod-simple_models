@@ -153,51 +153,62 @@ door_def.base_alt.mesh = smodel.panel_rear.mesh
 door_def.base_alt.collision_box.fixed = smodel.panel_rear.box
 door_def.base_alt.selection_box.fixed = smodel.panel_rear.box
 
-for _, swing in ipairs({"in", "out"}) do
-	for _, state in ipairs({"closed", "open"}) do
-		local door_base
-		if swing == "in" and state == "open" then
-			door_base = table.copy(door_def.base_alt)
-		else
-			door_base = table.copy(door_def.base)
-		end
+for _, dir in ipairs({"l", "r"}) do
+	for _, swing in ipairs({"in", "out"}) do
+		for _, state in ipairs({"closed", "open"}) do
+			local door_base
+			if swing == "in" and state == "open" then
+				door_base = table.copy(door_def.base_alt)
+			else
+				door_base = table.copy(door_def.base)
+			end
 
-		local door_aux = door_def[swing]
-		local door_name = "simple_models:door_l_" .. swing .. "_" .. state
-		door_base.description = "Door L (" .. door_aux.desc .. " opening)"
+			local door_aux = door_def[swing]
+			local door_name = "simple_models:door_" .. dir .. "_" .. swing .. "_" .. state
+			local invert = dir == "r"
 
-		if state == "closed" then
-			door_base.on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-				door_aux.func[state](smodel, pos, "simple_models:door_l_" .. swing .. "_open")
-				if core.global_exists("sounds") and sounds.door_open then
-					sounds.door_open()
+			door_base.description = "Door "
+			if dir == "l" then
+				door_base.description = door_base.description .. "L"
+			else
+				door_base.description = door_base.description .. "R"
+			end
+			door_base.description = door_base.description .. " (" .. door_aux.desc .. " opening)"
+
+			if state == "closed" then
+				door_base.on_rightclick = function(pos, node, clicker, stack, pointed_thing)
+					door_aux.func[state](smodel, pos,
+						"simple_models:door_" .. dir .. "_" .. swing .. "_open", invert)
+					if core.global_exists("sounds") and sounds.door_open then
+						sounds.door_open()
+					end
+
+					return stack
+				end
+			else
+				door_base.drop = "simple_models:door_" .. dir .. "_" .. swing .. "_closed"
+				door_base.groups.not_in_creative_inventory = 1
+
+				door_base.on_rightclick = function(pos, node, clicker, stack, pointed_thing)
+					door_aux.func[state](smodel, pos, door_base.drop, invert)
+					if core.global_exists("sounds") and sounds.door_close then
+						sounds.door_close()
+					end
+
+					return stack
 				end
 
-				return stack
-			end
-		else
-			door_base.drop = "simple_models:door_l_" .. swing .. "_closed"
-			door_base.groups.not_in_creative_inventory = 1
-
-			door_base.on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-				door_aux.func[state](smodel, pos, door_base.drop)
-				if core.global_exists("sounds") and sounds.door_close then
-					sounds.door_close()
+				door_base.after_place_node = function(pos, placer, stack, pointed_thing)
+					local node = core.get_node(pos)
+					core.swap_node(pos, {
+						name = door_base.drop,
+						param1 = node.param1,
+						param2 = node.param2,
+					})
 				end
-
-				return stack
 			end
 
-			door_base.after_place_node = function(pos, placer, stack, pointed_thing)
-				local node = core.get_node(pos)
-				core.swap_node(pos, {
-					name = door_base.drop,
-					param1 = node.param1,
-					param2 = node.param2,
-				})
-			end
+			core.register_node(door_name, door_base)
 		end
-
-		core.register_node(door_name, door_base)
 	end
 end
