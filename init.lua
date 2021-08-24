@@ -106,7 +106,7 @@ simple_models.door_inward_close = function(self, pos, new_node)
 		rot = 0
 	end
 	core.swap_node(pos, {
-		name = "simple_models:door",
+		name = new_node,
 		param1 = node.param1,
 		param2 = rot,
 	})
