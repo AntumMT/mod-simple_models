@@ -1,4 +1,6 @@
 
+-- cubes
+
 core.register_node("simple_models:node_tall", {
 	description = "Tall Node",
 	drawtype = "mesh",
@@ -15,6 +17,9 @@ core.register_node("simple_models:node_tall", {
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand=1},
 })
+
+
+-- panels
 
 core.register_node("simple_models:panel", {
 	description = "Front Panel",
@@ -107,6 +112,8 @@ core.register_node("simple_models:panel_rear", {
 })
 
 
+-- doors
+
 local door_def = {
 	base = {
 		drawtype = "mesh",
@@ -141,10 +148,22 @@ local door_def = {
 	},
 }
 
+door_def.base_alt = table.copy(door_def.base)
+door_def.base_alt.mesh = smodel.panel_rear.mesh
+door_def.base_alt.collision_box.fixed = smodel.panel_rear.box
+door_def.base_alt.selection_box.fixed = smodel.panel_rear.box
+
 for _, swing in ipairs({"in", "out"}) do
 	for _, state in ipairs({"closed", "open"}) do
+		local door_base
+		if swing == "in" and state == "open" then
+			door_base = table.copy(door_def.base_alt)
+		else
+			door_base = table.copy(door_def.base)
+		end
+
+		local door_aux = door_def[swing]
 		local door_name = "simple_models:door_l_" .. swing .. "_" .. state
-		local door_base, door_aux = table.copy(door_def.base), door_def[swing]
 		door_base.description = "Door L (" .. door_aux.desc .. " opening)"
 
 		if state == "closed" then
