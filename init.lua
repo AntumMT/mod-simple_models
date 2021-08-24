@@ -32,6 +32,18 @@ simple_models = {
 		box = {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45},
 	},
 
+	--- Mid panel
+	--
+	--  Alias: simple_models.panel_mid
+	--
+	--  @table simple_models.panel_mid_1x2x1
+	--  @tfield string mesh simple_models_panel_mid_1x2x1.obj
+	--  @tfield table box {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025},
+	panel_mid_1x2x1 = {
+		mesh = "simple_models_panel_mid_1x2x1.obj",
+		box = {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025},
+	},
+
 	--- Rear panel
 	--
 	--  Alias: simple_models.panel_rear
@@ -47,6 +59,7 @@ simple_models = {
 
 simple_models.cube = simple_models.cube_1x2x1
 simple_models.panel = simple_models.panel_1x2x1
+simple_models.panel_mid = simple_models.panel_mid_1x2x1
 simple_models.panel_rear = simple_models.panel_rear_1x2x1
 
 --- Global table.

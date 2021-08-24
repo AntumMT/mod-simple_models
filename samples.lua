@@ -34,6 +34,36 @@ core.register_node("simple_models:panel", {
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
 		core.swap_node(pos, {
+			name = "simple_models:panel_mid",
+			param1 = node.param1,
+			param2 = node.param2,
+		})
+		if core.global_exists("sounds") and sounds.woosh then
+			sounds.woosh()
+		end
+
+		return stack
+	end,
+})
+
+core.register_node("simple_models:panel_mid", {
+	description = "Mid Panel",
+	drawtype = "mesh",
+	tiles = {"simple_models_sample_panel_1x2x1_map.png"},
+	mesh = smodel.panel_mid.mesh,
+	collision_box = {
+		type = "fixed",
+		fixed = smodel.panel_mid.box,
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = smodel.panel_mid.box,
+	},
+	paramtype2 = "facedir",
+	groups = {oddly_breakable_by_hand=1},
+
+	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
+		core.swap_node(pos, {
 			name = "simple_models:panel_rear",
 			param1 = node.param1,
 			param2 = node.param2,
