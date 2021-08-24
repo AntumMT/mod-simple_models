@@ -17,18 +17,22 @@ simple_models_cube_1x2x1:
 - for nodes with dimensions 1x2x1
 
 - preview:
+
   <img src="previews/cube_1x2x1_model.png" />
 
 - texture map:
+
   <img src="textures/simple_models_sample_cube_1x2x1_map.png" />
 
 simple_models_panel_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1
 
 - preview:
+
   <img src="previews/panel_1x2x1_model.png" />
 
 - texture map:
+
   <img src="textures/simple_models_sample_panel_1x2x1_map.png" />
 
 simple_models_panel_mid_1x2x1:
