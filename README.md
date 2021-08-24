@@ -84,7 +84,7 @@ Sample nodes include:
 
 #### Helper Methods
 
-There are some helper methods to make opening & closing door-like nodes simpler. They take the parameters `pos` & `new_node`:
+There are some helper methods to make opening & closing door-like nodes simpler. They take the parameters `pos`, `new_node`, & `invert`:
 
 ```
 simple_models:door_inward_open
@@ -102,9 +102,16 @@ simple_models.door_outward_close
 
 Example usage:
 ```lua
-core.register_node("simple_models:door", {
+core.register_node("simple_models:door_l_closed", {
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-		simple_models:door_inward_open(pos, "simple_models:door_open")
+		simple_models:door_inward_open(pos, "simple_models:door_l_open")
+		return stack
+	end,
+})
+
+core.register_node("simple_models:door_r_closed", {
+	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
+		simple_models:door_inward_open(pos, "simple_models:door_r_open", true)
 		return stack
 	end,
 })
