@@ -1,3 +1,4 @@
 
 TODO:
 - add methods for opening doors in opposite directions
+- add mid panel
