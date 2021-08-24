@@ -76,10 +76,16 @@ There are some helper methods to make opening & closing door-like nodes simpler.
 
 ```
 simple_models:door_inward_open
-- Helper method for inward opening door nodes.
+- Helper method for inward opening door-like nodes.
 
 simple_models:door_inward_close
-- Helper method for inward closing door nodes.
+- Helper method for inward closing door-like nodes.
+
+simple_models.door_outward_open
+- Helper method for outward opening door-like nodes.
+
+simple_models.door_outward_close
+- Helper method for outward closing door-like nodes.
 ```
 
 Example usage:

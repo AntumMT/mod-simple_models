@@ -99,6 +99,92 @@ simple_models.door_inward_close = function(self, pos, new_node)
 	})
 end
 
+local get_pos_front = function(pos, param2)
+	local new_pos = table.copy(pos)
+
+	if param2 == 0 then
+		new_pos.z = new_pos.z-1
+	elseif param2 == 2 then
+		new_pos.z = new_pos.z+1
+	elseif param2 == 1 then
+		new_pos.x = new_pos.x-1
+	elseif param2 == 3 then
+		new_pos.x = new_pos.x+1
+	end
+
+	return new_pos
+end
+
+local get_pos_behind = function(pos, param2)
+	local new_pos = table.copy(pos)
+
+	if param2 == 0 then
+		new_pos.x = new_pos.x-1
+	elseif param2 == 2 then
+		new_pos.x = new_pos.x+1
+	elseif param2 == 1 then
+		new_pos.z = new_pos.z+1
+	elseif param2 == 3 then
+		new_pos.z = new_pos.z-1
+	end
+
+	return new_pos
+end
+
+--- Helper method for outward opening door-like nodes.
+--
+--  @function simple_models:door_outward_open
+--  @tparam vector pos Position of node.
+--  @tparam string new_node Technical name of node replacement.
+simple_models.door_outward_open = function(self, pos, new_node)
+	local node = core.get_node_or_nil(pos)
+	if not node then return end
+
+	local new_pos = get_pos_front(pos, node.param2)
+
+	local blocker = core.get_node(new_pos)
+	-- something is blocking door or new_pos is same as old
+	if blocker and blocker.name ~= "air" then return end
+
+	local rot = node.param2+1
+	if rot > 3 then
+		rot = 0
+	end
+	core.remove_node(pos)
+	core.set_node(new_pos, {
+		name = new_node,
+		param1 = node.param1,
+		param2 = rot,
+	})
+end
+
+--- Helper method for outward closing door-like nodes.
+--
+--  @function simple_models:door_outward_close
+--  @tparam vector pos Position of node.
+--  @tparam string new_node Technical name of node replacement.
+simple_models.door_outward_close = function(self, pos, new_node)
+	local node = core.get_node_or_nil(pos)
+	if not node then return end
+
+	local new_pos = get_pos_behind(pos, node.param2)
+
+	local blocker = core.get_node(new_pos)
+	-- something is blocking door or new_pos is same as old
+	if blocker and blocker.name ~= "air" then return end
+
+	local rot = node.param2-1
+	if rot < 0 then
+		rot = 3
+	end
+	core.remove_node(pos)
+	core.set_node(new_pos, {
+		name = new_node,
+		param1 = node.param1,
+		param2 = rot,
+	})
+end
+
 
 if core.settings:get_bool("simple_models.enable_samples", false) then
 	dofile(core.get_modpath(core.get_current_modname()) .. "/samples.lua")
