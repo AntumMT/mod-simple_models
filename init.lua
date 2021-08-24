@@ -204,12 +204,16 @@ simple_models.door_outward_open = function(self, pos, new_node, invert)
 		end
 	end
 
+	local old_meta_table = core.get_meta(pos):to_table()
 	core.remove_node(pos)
 	core.set_node(new_pos, {
 		name = new_node,
 		param1 = node.param1,
 		param2 = rot,
 	})
+
+	-- transfer meta to new pos
+	core.get_meta(new_pos):from_table(old_meta_table)
 end
 
 --- Helper method for outward closing door-like nodes.
@@ -241,12 +245,16 @@ simple_models.door_outward_close = function(self, pos, new_node, invert)
 		end
 	end
 
+	local old_meta_table = core.get_meta(pos):to_table()
 	core.remove_node(pos)
 	core.set_node(new_pos, {
 		name = new_node,
 		param1 = node.param1,
 		param2 = rot,
 	})
+
+	-- transfer meta to new pos
+	core.get_meta(new_pos):from_table(old_meta_table)
 end
 
 
