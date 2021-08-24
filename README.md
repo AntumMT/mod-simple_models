@@ -69,6 +69,8 @@ Sample nodes include:
 - simple_models:panel_rear
 - simple_models:door
 - simple_models:door_open
+- simple_models:door2
+- simple_models:door2_open
 
 #### Helper Methods
 
