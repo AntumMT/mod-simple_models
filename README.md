@@ -11,7 +11,7 @@ A set of very simple models for [Minetest](https://www.minetest.net/).
 
 #### Models
 
-[simple_models_cube_1x2x1](https://opengameart.org/node/129635):
+simple_models_cube_1x2x1:
 - for nodes with dimensions 1x2x1
 
 - preview:
@@ -28,6 +28,10 @@ simple_models_panel_1x2x1:
 
 - texture map:
   <img src="textures/simple_models_sample_panel_1x2x1_map.png" />
+
+simple_models_panel_mid_1x2x1:
+- for door or panel-like nodes with dimensions 1x2x1 positioned in center
+- same texture map as simple_models_panel_1x2x1
 
 simple_models_panel_rear_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1 positioned at rear
@@ -52,6 +56,12 @@ simple_models.panel_1x2x1:
 	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
 - alias: simple_models.panel
 
+simple_models.panel_mid_1x2x1:
+- fields:
+	- mesh: "simple_models_panel_mid_1x2x1.obj"
+	- box:  {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025}
+- alias: simple_models.panel_mid
+
 simple_models.panel_rear_1x2x1:
 - fields:
 	- mesh: "simple_models_panel_rear_1x2x1.obj"
@@ -67,10 +77,10 @@ Sample nodes include:
 - simple_models:node_tall
 - simple_models:panel
 - simple_models:panel_rear
-- simple_models:door
-- simple_models:door_open
-- simple_models:door2
-- simple_models:door2_open
+- simple_models:door_l_in_closed
+- simple_models:door_l_in_open
+- simple_models:door_l_out_closed
+- simple_models:door_l_out_open
 
 #### Helper Methods
 
