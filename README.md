@@ -3,7 +3,7 @@
 
 ### Description
 
-A set of very simple models for [Minetest](https://www.minetest.net/).
+A set of very simple models for [Minetest](https://www.minetest.net/) & API for handling them.
 
 <img src="screenshot.png" width="350px" />
 
