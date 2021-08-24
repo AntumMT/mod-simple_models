@@ -4,6 +4,36 @@
 --  @topic api
 
 
+--- Get new rotation for that is opened or closed.
+--
+--  @local
+--  @tparam int old_rot Previous node rotation.
+--  @tparam[opt] bool open Whether door is being opened or closed (default: true).
+--  @tparam[opt] bool inward Whether door opens inward or outward (default: true).
+--  @tparam[opt] bool invert If `true`, door swings in opposite direction.
+local get_door_rotation = function(old_rot, open, inward, invert)
+	open = open ~= false
+	inward = inward ~= false
+	invert = invert == true
+
+	local new_rot = old_rot
+	if (not invert and ((open and inward) or (not open and not inward))) or
+			(invert and ((not open and inward) or (open and not inward))) then
+		new_rot = new_rot-1
+		if new_rot < 0 then
+			new_rot = 3
+		end
+	else
+		new_rot = new_rot+1
+		if new_rot > 3 then
+			new_rot = 0
+		end
+	end
+
+	return new_rot
+end
+
+
 --- Helper method for inward opening door-like nodes.
 --
 --  @function simple_models:door_inward_open
@@ -14,23 +44,10 @@ simple_models.door_inward_open = function(self, pos, new_node, invert)
 	local node = core.get_node_or_nil(pos)
 	if not node then return end
 
-	local rot
-	if not invert then
-		rot = node.param2-1
-		if rot < 0 then
-			rot = 3
-		end
-	else
-		rot = node.param2+1
-		if rot > 3 then
-			rot = 0
-		end
-	end
-
 	core.swap_node(pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = rot,
+		param2 = get_door_rotation(node.param2, true, true, invert),
 	})
 end
 
@@ -44,23 +61,10 @@ simple_models.door_inward_close = function(self, pos, new_node, invert)
 	local node = core.get_node_or_nil(pos)
 	if not node then return end
 
-	local rot
-	if not invert then
-		rot = node.param2+1
-		if rot > 3 then
-			rot = 0
-		end
-	else
-		rot = node.param2-1
-		if rot < 0 then
-			rot = 3
-		end
-	end
-
 	core.swap_node(pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = rot,
+		param2 = get_door_rotation(node.param2, false, true, invert),
 	})
 end
 
@@ -117,25 +121,12 @@ simple_models.door_outward_open = function(self, pos, new_node, invert)
 	-- something is blocking door or new_pos is same as old
 	if blocker and blocker.name ~= "air" then return end
 
-	local rot
-	if not invert then
-		rot = node.param2+1
-		if rot > 3 then
-			rot = 0
-		end
-	else
-		rot = node.param2-1
-		if rot < 0 then
-			rot = 3
-		end
-	end
-
 	local old_meta_table = core.get_meta(pos):to_table()
 	core.remove_node(pos)
 	core.set_node(new_pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = rot,
+		param2 = get_door_rotation(node.param2, true, false, invert),
 	})
 
 	-- transfer meta to new pos
@@ -158,25 +149,12 @@ simple_models.door_outward_close = function(self, pos, new_node, invert)
 	-- something is blocking door or new_pos is same as old
 	if blocker and blocker.name ~= "air" then return end
 
-	local rot
-	if not invert then
-		rot = node.param2-1
-		if rot < 0 then
-			rot = 3
-		end
-	else
-		rot = node.param2+1
-		if rot > 3 then
-			rot = 0
-		end
-	end
-
 	local old_meta_table = core.get_meta(pos):to_table()
 	core.remove_node(pos)
 	core.set_node(new_pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = rot,
+		param2 = get_door_rotation(node.param2, false, false, invert),
 	})
 
 	-- transfer meta to new pos
