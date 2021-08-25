@@ -8,10 +8,19 @@
 --
 --  @local
 --  @tparam int old_rot Previous node rotation.
+--  @tparam string paramtype2 Node paramtype2.
 --  @tparam[opt] bool open Whether door is being opened or closed (default: true).
 --  @tparam[opt] bool inward Whether door opens inward or outward (default: true).
 --  @tparam[opt] bool invert If `true`, door swings in opposite direction.
-local get_door_rotation = function(old_rot, open, inward, invert)
+--  @treturn int New rotation.
+local get_door_rotation = function(old_rot, paramtype2, open, inward, invert)
+	-- only facedir is supported
+	if not string.find(paramtype2, "facedir") then return end
+	local color_info = core.strip_param2_color(old_rot, paramtype2)
+	if color_info then
+		old_rot = old_rot - color_info
+	end
+
 	open = open ~= false
 	inward = inward ~= false
 	invert = invert == true
@@ -30,7 +39,18 @@ local get_door_rotation = function(old_rot, open, inward, invert)
 		end
 	end
 
+	if color_info then
+		new_rot = new_rot + color_info
+	end
+
 	return new_rot
+end
+
+local get_paramtype2 = function(node)
+	local node_def = core.registered_nodes[node.name]
+	if node_def then
+		return node_def.paramtype2
+	end
 end
 
 
@@ -44,10 +64,13 @@ simple_models.door_inward_open = function(self, pos, new_node, invert)
 	local node = core.get_node_or_nil(pos)
 	if not node then return end
 
+	local new_rot = get_door_rotation(node.param2, get_paramtype2(node), true, true, invert)
+	if not new_rot then return end
+
 	core.swap_node(pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = get_door_rotation(node.param2, true, true, invert),
+		param2 = new_rot,
 	})
 end
 
@@ -61,44 +84,59 @@ simple_models.door_inward_close = function(self, pos, new_node, invert)
 	local node = core.get_node_or_nil(pos)
 	if not node then return end
 
+	local new_rot = get_door_rotation(node.param2, get_paramtype2(node), false, true, invert)
+	if not new_rot then return end
+
 	core.swap_node(pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = get_door_rotation(node.param2, false, true, invert),
+		param2 = new_rot,
 	})
 end
 
-local get_pos_front = function(pos, param2)
+local get_pos_front = function(pos, param2, paramtype2)
 	local new_pos = table.copy(pos)
 
-	if param2 == 0 then
+	local rot = param2
+	local color_info = core.strip_param2_color(param2, paramtype2)
+	if color_info then
+		rot = rot - color_info
+	end
+
+	if rot == 0 then
 		new_pos.z = new_pos.z-1
-	elseif param2 == 2 then
+	elseif rot == 2 then
 		new_pos.z = new_pos.z+1
-	elseif param2 == 1 then
+	elseif rot == 1 then
 		new_pos.x = new_pos.x-1
-	elseif param2 == 3 then
+	elseif rot == 3 then
 		new_pos.x = new_pos.x+1
 	end
 
 	return new_pos
 end
 
-local get_pos_behind = function(pos, param2, invert)
+local get_pos_behind = function(pos, param2, paramtype2, invert)
 	local new_pos = table.copy(pos)
+
+	local rot = param2
+	local color_info = core.strip_param2_color(param2, paramtype2)
+	if color_info then
+		rot = rot - color_info
+	end
 
 	local addto = 1
 	if invert then
 		addto = -addto
 	end
 
-	if param2 == 0 then
+	if rot == 0 then
 		new_pos.x = new_pos.x - addto
-	elseif param2 == 2 then
+	elseif rot == 2 then
 		new_pos.x = new_pos.x + addto
-	elseif param2 == 1 then
+	elseif rot == 1 then
 		new_pos.z = new_pos.z + addto
-	elseif param2 == 3 then
+	elseif rot == 3 then
 		new_pos.z = new_pos.z - addto
 	end
 
@@ -115,18 +153,22 @@ simple_models.door_outward_open = function(self, pos, new_node, invert)
 	local node = core.get_node_or_nil(pos)
 	if not node then return end
 
-	local new_pos = get_pos_front(pos, node.param2)
+	local paramtype2 = get_paramtype2(node)
+	local new_pos = get_pos_front(pos, node.param2, paramtype2)
 
 	local blocker = core.get_node(new_pos)
 	-- something is blocking door or new_pos is same as old
 	if blocker and blocker.name ~= "air" then return end
+
+	local new_rot = get_door_rotation(node.param2, paramtype2, true, false, invert)
+	if not new_rot then return end
 
 	local old_meta_table = core.get_meta(pos):to_table()
 	core.remove_node(pos)
 	core.set_node(new_pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = get_door_rotation(node.param2, true, false, invert),
+		param2 = new_rot,
 	})
 
 	-- transfer meta to new pos
@@ -143,18 +185,22 @@ simple_models.door_outward_close = function(self, pos, new_node, invert)
 	local node = core.get_node_or_nil(pos)
 	if not node then return end
 
-	local new_pos = get_pos_behind(pos, node.param2, invert)
+	local paramtype2 = get_paramtype2(node)
+	local new_pos = get_pos_behind(pos, node.param2, paramtype2, invert)
 
 	local blocker = core.get_node(new_pos)
 	-- something is blocking door or new_pos is same as old
 	if blocker and blocker.name ~= "air" then return end
+
+	local new_rot = get_door_rotation(node.param2, paramtype2, false, false, invert)
+	if not new_rot then return end
 
 	local old_meta_table = core.get_meta(pos):to_table()
 	core.remove_node(pos)
 	core.set_node(new_pos, {
 		name = new_node,
 		param1 = node.param1,
-		param2 = get_door_rotation(node.param2, false, false, invert),
+		param2 = new_rot,
 	})
 
 	-- transfer meta to new pos

@@ -1,3 +1,2 @@
 
 TODO:
-- support opening/closing colored door-like nodes
