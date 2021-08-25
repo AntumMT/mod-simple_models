@@ -14,7 +14,8 @@ core.register_node("simple_models:node_tall", {
 		type = "fixed",
 		fixed = smodel.cube.box,
 	},
-	paramtype2 = "facedir",
+	paramtype2 = "colorfacedir",
+	palette = "simple_models_sample_palette.png",
 	groups = {oddly_breakable_by_hand=1},
 })
 
@@ -34,7 +35,8 @@ core.register_node("simple_models:panel", {
 		type = "fixed",
 		fixed = smodel.panel.box,
 	},
-	paramtype2 = "facedir",
+	paramtype2 = "colorfacedir",
+	palette = "simple_models_sample_palette.png",
 	groups = {oddly_breakable_by_hand=1},
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
@@ -64,7 +66,8 @@ core.register_node("simple_models:panel_mid", {
 		type = "fixed",
 		fixed = smodel.panel_mid.box,
 	},
-	paramtype2 = "facedir",
+	paramtype2 = "colorfacedir",
+	palette = "simple_models_sample_palette.png",
 	groups = {oddly_breakable_by_hand=1},
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
@@ -94,7 +97,8 @@ core.register_node("simple_models:panel_rear", {
 		type = "fixed",
 		fixed = smodel.panel_rear.box,
 	},
-	paramtype2 = "facedir",
+	paramtype2 = "colorfacedir",
+	palette = "simple_models_sample_palette.png",
 	groups = {oddly_breakable_by_hand=1},
 
 	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
@@ -127,7 +131,8 @@ local door_def = {
 			type = "fixed",
 			fixed = smodel.panel.box,
 		},
-		paramtype2 = "facedir",
+		paramtype2 = "colorfacedir",
+		palette = "simple_models_sample_palette.png",
 		groups = {oddly_breakable_by_hand=1},
 	},
 
@@ -184,6 +189,12 @@ for _, dir in ipairs({"l", "r"}) do
 					end
 
 					return stack
+				end
+
+				door_base.after_place_node = function(pos, placer, stack, pointed_thing)
+					local node = core.get_node(pos)
+					node.param2 = node.param2 + (3 * 32)
+					core.swap_node(pos, {name=node.name, param1=node.param1, param2=node.param2})
 				end
 			else
 				door_base.drop = "simple_models:door_" .. dir .. "_" .. swing .. "_closed"
