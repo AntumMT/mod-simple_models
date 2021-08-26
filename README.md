@@ -54,6 +54,17 @@ simple_models_stair_1x1x1:
 
   <img src="textures/simple_models_sample_stair_1x1x1_map.png" />
 
+simple_models_slope_1x1x1:
+  - for slope-like nodes with dimensions 1x1x1
+
+  - preview:
+
+    <img src="previews/slope_1x1x1_model.png" />
+
+  - texture map:
+
+    <img src="textures/simple_models_sample_slope_1x1x1_map.png" />
+
 #### Tables
 
 `smodel` is an alias of `simple_models`.
@@ -90,6 +101,23 @@ simple_models.stair_1x1x1:
 	- mesh: "simple_models_stair_1x1x1.obj"
 	- box:  {{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}, {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}}
 - alias: simple_models.stair
+
+simple_models.slope_1x1x1:
+- fields:
+	- mesh: "simple_models_slope_1x1x1.obj"
+	- box:  {
+			{-0.5, -0.5,  0.4, 0.5,  0.5, 0.5},
+			{-0.5, -0.5,  0.3, 0.5,  0.4, 0.5},
+			{-0.5, -0.5,  0.2, 0.5,  0.3, 0.5},
+			{-0.5, -0.5,  0.1, 0.5,  0.2, 0.5},
+			{-0.5, -0.5,  0.0, 0.5,  0.1, 0.5},
+			{-0.5, -0.5, -0.1, 0.5,  0.0, 0.5},
+			{-0.5, -0.5, -0.2, 0.5, -0.1, 0.5},
+			{-0.5, -0.5, -0.3, 0.5, -0.2, 0.5},
+			{-0.5, -0.5, -0.4, 0.5, -0.3, 0.5},
+			{-0.5, -0.5, -0.5, 0.5, -0.4, 0.5},
+		}
+- alias: simple_models.slope
 ```
 
 #### Helper Methods
