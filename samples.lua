@@ -223,3 +223,23 @@ for _, dir in ipairs({"l", "r"}) do
 		end
 	end
 end
+
+
+-- stairs
+
+core.register_node("simple_models:stair", {
+	description = "Stair",
+	drawtype = "mesh",
+	tiles = {"simple_models_sample_stair_1x1x1_map.png"},
+	mesh = smodel.stair.mesh,
+	collision_box = {
+		type = "fixed",
+		fixed = smodel.stair.box,
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = smodel.stair.box,
+	},
+	paramtype2 = "facedir",
+	groups = {oddly_breakable_by_hand=1, stair=1},
+})
