@@ -59,14 +59,36 @@ simple_models.panel_rear_1x2x1 = {
 --  @table simpel_models.stair_1x1x1
 --  @tfield string mesh simple_models_stair_1x1x1.obj
 --  @tfield table box {
+--    {-0.5,  0.0,  0.0, 0.5, 0.5, 0.5},
 --    {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
---    {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5},
 --  }
 simple_models.stair_1x1x1 = {
 	mesh = "simple_models_stair_1x1x1.obj",
 	box = {
+		{-0.5,  0.0,  0.0, 0.5, 0.5, 0.5},
 		{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
-		{-0.5, 0.0, 0.0, 0.5, 0.5, 0.5},
+	},
+}
+
+--- Stair (4-steps)
+--
+--  Alias: simple_models.stair_fine
+--
+--  @table simpel_models.stair_fine_1x1x1
+--  @tfield string mesh simple_models_stair_fine_1x1x1.obj
+--  @tfield table box {
+--    {-0.5,  0.25,  0.25, 0.5,  0.5,  0.5},
+--    {-0.5,  0.0,   0.0,  0.5,  0.25, 0.5},
+--    {-0.5, -0.25, -0.25, 0.5,  0.0,  0.5},
+--    {-0.5, -0.5,  -0.5,  0.5, -0.25, 0.5},
+--  }
+simple_models.stair_fine_1x1x1 = {
+	mesh = "simple_models_stair_fine_1x1x1.obj",
+	box = {
+		{-0.5,  0.25,  0.25, 0.5,  0.5,  0.5},
+		{-0.5,  0.0,   0.0,  0.5,  0.25, 0.5},
+		{-0.5, -0.25, -0.25, 0.5,  0.0,  0.5},
+		{-0.5, -0.5,  -0.5,  0.5, -0.25, 0.5},
 	},
 }
 
@@ -124,5 +146,6 @@ simple_models.panel = simple_models.panel_1x2x1
 simple_models.panel_mid = simple_models.panel_mid_1x2x1
 simple_models.panel_rear = simple_models.panel_rear_1x2x1
 simple_models.stair = simple_models.stair_1x1x1
+simple_models.stair_fine = simple_models.stair_fine_1x1x1
 simple_models.slope = simple_models.slope_1x1x1
 simple_models.slope_long = simple_models.slope_1x1x2

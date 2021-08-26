@@ -54,6 +54,17 @@ simple_models_stair_1x1x1:
 
   <img src="textures/simple_models_sample_stair_1x1x1_map.png" />
 
+simple_models_stair_fine_1x1x1:
+  - for stair-like nodes with dimensions 1x1x1
+
+  - preview:
+
+    <img src="previews/stair_fine_1x1x1_model.png" />
+
+  - texture map:
+
+    <img src="textures/simple_models_sample_stair_fine_1x1x1_map.png" />
+
 simple_models_slope_1x1x1:
   - for slope-like nodes with dimensions 1x1x1
 
@@ -108,8 +119,19 @@ simple_models.panel_rear_1x2x1:
 simple_models.stair_1x1x1:
 - fields:
   - mesh: "simple_models_stair_1x1x1.obj"
-  - box:  {{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}, {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}}
+  - box:  {{-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}, {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}}
 - alias: simple_models.stair
+
+simple_models.stair_fine_1x1x1x:
+- fields:
+  - mesh: "simple_models_stair_fine_1x1x1x.obj"
+  - box:  {
+      {-0.5,  0.25,  0.25, 0.5,  0.5,  0.5},
+      {-0.5,  0.0,   0.0,  0.5,  0.25, 0.5},
+      {-0.5, -0.25, -0.25, 0.5,  0.0,  0.5},
+      {-0.5, -0.5,  -0.5,  0.5, -0.25, 0.5},
+    }
+- alias: simple_models.stair_fine
 
 simple_models.slope_1x1x1:
 - fields:
