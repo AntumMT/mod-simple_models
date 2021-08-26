@@ -43,27 +43,27 @@ simple_models_panel_rear_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1 positioned at rear
 - texture map: same as simple_models_panel_1x2x1
 
-simple_models_stair_1x1x1:
+simple_models_stair_2s_1x1x1:
 - for stair-like nodes with dimensions 1x1x1
 
 - preview:
 
-  <img src="previews/stair_1x1x1_model.png" />
+  <img src="previews/stair_2s_1x1x1_model.png" />
 
 - texture map:
 
-  <img src="textures/simple_models_sample_stair_1x1x1_map.png" />
+  <img src="textures/simple_models_sample_stair_2s_1x1x1_map.png" />
 
-simple_models_stair_fine_1x1x1:
+simple_models_stair_4s_1x1x1:
   - for stair-like nodes with dimensions 1x1x1
 
   - preview:
 
-    <img src="previews/stair_fine_1x1x1_model.png" />
+    <img src="previews/stair_4s_1x1x1_model.png" />
 
   - texture map:
 
-    <img src="textures/simple_models_sample_stair_fine_1x1x1_map.png" />
+    <img src="textures/simple_models_sample_stair_4s_1x1x1_map.png" />
 
 simple_models_slope_1x1x1:
   - for slope-like nodes with dimensions 1x1x1
@@ -116,22 +116,22 @@ simple_models.panel_rear_1x2x1:
   - box:  {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
 - alias: simple_models.panel_rear
 
-simple_models.stair_1x1x1:
+simple_models.stair_2s_1x1x1:
 - fields:
-  - mesh: "simple_models_stair_1x1x1.obj"
+  - mesh: "simple_models_stair_2s_1x1x1.obj"
   - box:  {{-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}, {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}}
-- alias: simple_models.stair
+- alias: simple_models.stair_2s
 
-simple_models.stair_fine_1x1x1x:
+simple_models.stair_4s_1x1x1x:
 - fields:
-  - mesh: "simple_models_stair_fine_1x1x1x.obj"
+  - mesh: "simple_models_stair_4s_1x1x1x.obj"
   - box:  {
       {-0.5,  0.25,  0.25, 0.5,  0.5,  0.5},
       {-0.5,  0.0,   0.0,  0.5,  0.25, 0.5},
       {-0.5, -0.25, -0.25, 0.5,  0.0,  0.5},
       {-0.5, -0.5,  -0.5,  0.5, -0.25, 0.5},
     }
-- alias: simple_models.stair_fine
+- alias: simple_models.stair_4s
 
 simple_models.slope_1x1x1:
 - fields:

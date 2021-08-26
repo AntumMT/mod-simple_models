@@ -230,35 +230,35 @@ end
 
 -- stairs
 
-core.register_node("simple_models:stair", {
-	description = "Stair",
+core.register_node("simple_models:stair_2s", {
+	description = "Stair (2-step)",
 	drawtype = "mesh",
-	tiles = {"simple_models_sample_stair_1x1x1_map.png"},
-	mesh = smodel.stair.mesh,
+	tiles = {"simple_models_sample_stair_2s_1x1x1_map.png"},
+	mesh = smodel.stair_2s.mesh,
 	collision_box = {
 		type = "fixed",
-		fixed = smodel.stair.box,
+		fixed = smodel.stair_2s.box,
 	},
 	selection_box = {
 		type = "fixed",
-		fixed = smodel.stair.box,
+		fixed = smodel.stair_2s.box,
 	},
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand=1, stair=1},
 })
 
-core.register_node("simple_models:stair2", {
-	description = "Stair",
+core.register_node("simple_models:stair_4s", {
+	description = "Stair (4-step)",
 	drawtype = "mesh",
-	tiles = {"simple_models_sample_stair_fine_1x1x1_map.png"},
-	mesh = smodel.stair_fine.mesh,
+	tiles = {"simple_models_sample_stair_4s_1x1x1_map.png"},
+	mesh = smodel.stair_4s.mesh,
 	collision_box = {
 		type = "fixed",
-		fixed = smodel.stair_fine.box,
+		fixed = smodel.stair_4s.box,
 	},
 	selection_box = {
 		type = "fixed",
-		fixed = smodel.stair_fine.box,
+		fixed = smodel.stair_4s.box,
 	},
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand=1, stair=1},
