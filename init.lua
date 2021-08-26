@@ -55,12 +55,31 @@ simple_models = {
 		mesh = "simple_models_panel_rear_1x2x1.obj",
 		box = {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5},
 	},
+
+	--- Stair
+	--
+	--  Alias: simple_models.stair
+	--
+	--  @table simpel_models.stair_1x1x1
+	--  @tfield string mesh simple_models_stair_1x1x1.obj
+	--  @tfield table box {
+	--    {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
+	--    {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5},
+	--  }
+	stair_1x1x1 = {
+		mesh = "simple_models_stair_1x1x1.obj",
+		box = {
+			{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
+			{-0.5, 0.0, 0.0, 0.5, 0.5, 0.5},
+		},
+	},
 }
 
 simple_models.cube = simple_models.cube_1x2x1
 simple_models.panel = simple_models.panel_1x2x1
 simple_models.panel_mid = simple_models.panel_mid_1x2x1
 simple_models.panel_rear = simple_models.panel_rear_1x2x1
+simple_models.stair = simple_models.stair_1x1x1
 
 --- Global table.
 --
