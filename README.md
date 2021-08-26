@@ -43,6 +43,17 @@ simple_models_panel_rear_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1 positioned at rear
 - same texture map as simple_models_panel_1x2x1
 
+simple_models_stair_1x1x1:
+- for stair-like nodes with dimensions 1x1x1
+
+- preview:
+
+  <img src="previews/stair_1x1x1_model.png" />
+
+- texture map:
+
+  <img src="textures/simple_models_sample_stair_1x1x1_map.png" />
+
 #### Tables
 
 `smodel` is an alias of `simple_models`.
@@ -73,6 +84,12 @@ simple_models.panel_rear_1x2x1:
 	- mesh: "simple_models_panel_rear_1x2x1.obj"
 	- box:  {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
 - alias: simple_models.panel_rear
+
+simple_models.stair_1x1x1:
+- fields:
+	- mesh: "simple_models_stair_1x1x1.obj"
+	- box:  {{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}, {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}}
+- alias: simple_models.stair
 ```
 
 #### Helper Methods
