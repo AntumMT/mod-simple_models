@@ -249,6 +249,7 @@ core.register_node("simple_models:stair", {
 
 
 -- slopes
+
 core.register_node("simple_models:slope", {
 	description = "Slope",
 	drawtype = "mesh",
@@ -261,6 +262,23 @@ core.register_node("simple_models:slope", {
 	selection_box = {
 		type = "fixed",
 		fixed = smodel.slope.box,
+	},
+	paramtype2 = "facedir",
+	groups = {oddly_breakable_by_hand=1, slope=1},
+})
+
+core.register_node("simple_models:slope_long", {
+	description = "Long Slope",
+	drawtype = "mesh",
+	tiles = {"simple_models_sample_slope_1x1x1_map.png"},
+	mesh = smodel.slope_long.mesh,
+	collision_box = {
+		type = "fixed",
+		fixed = smodel.slope_long.box,
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = smodel.slope_long.box,
 	},
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand=1, slope=1},
