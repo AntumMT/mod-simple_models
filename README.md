@@ -217,6 +217,10 @@ Sample nodes include:
 - simple_models:door_l_in_open
 - simple_models:door_l_out_closed
 - simple_models:door_l_out_open
+- simple_models:stair_2s
+- simple_models:stair_4s
+- simple_models:slope
+- simple_models:slope_long
 
 ---
 ### Licensing
