@@ -67,8 +67,6 @@ simple_models_slope_1x1x1:
 
 #### Tables
 
-`smodel` is an alias of `simple_models`.
-
 There are some tables for accessing pre-defined attributes:
 
 ```

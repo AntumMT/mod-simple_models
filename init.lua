@@ -1,11 +1,6 @@
 
 simple_models = {}
 
-if not core.global_exists("smodel") then
-	smodel = simple_models
-end
-
-
 local modpath = core.get_modpath(core.get_current_modname())
 
 local scripts = {

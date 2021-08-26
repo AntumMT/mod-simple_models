@@ -1,4 +1,7 @@
 
+local smodel = simple_models
+
+
 -- cubes
 
 core.register_node("simple_models:node_tall", {
