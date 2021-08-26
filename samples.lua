@@ -243,3 +243,22 @@ core.register_node("simple_models:stair", {
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand=1, stair=1},
 })
+
+
+-- slopes
+core.register_node("simple_models:slope", {
+	description = "Slope",
+	drawtype = "mesh",
+	tiles = {"simple_models_sample_slope_1x1x1_map.png"},
+	mesh = smodel.slope.mesh,
+	collision_box = {
+		type = "fixed",
+		fixed = smodel.slope.box,
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = smodel.slope.box,
+	},
+	paramtype2 = "facedir",
+	groups = {oddly_breakable_by_hand=1, slope=1},
+})
