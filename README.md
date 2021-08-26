@@ -77,7 +77,7 @@ simple_models.panel_rear_1x2x1:
 
 #### Helper Methods
 
-There are some helper methods to make opening & closing door-like nodes simpler. They take the parameters `pos`, `new_node`, & `invert`:
+There are some helper methods to make opening & closing door-like nodes simpler. They take the parameters `pos`, `new_node`, & `invert`. If `invert` is set to `true`, doors will swing in the opposite direction:
 
 ```
 simple_models:door_inward_open
@@ -118,6 +118,7 @@ To use sample nodes, enable the setting `simple_models.enable_samples`.
 Sample nodes include:
 - simple_models:node_tall
 - simple_models:panel
+- simple_models:panel_mid
 - simple_models:panel_rear
 - simple_models:door_l_in_closed
 - simple_models:door_l_in_open
