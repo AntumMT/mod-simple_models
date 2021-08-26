@@ -37,11 +37,11 @@ simple_models_panel_1x2x1:
 
 simple_models_panel_mid_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1 positioned in center
-- same texture map as simple_models_panel_1x2x1
+- texture map: same as simple_models_panel_1x2x1
 
 simple_models_panel_rear_1x2x1:
 - for door or panel-like nodes with dimensions 1x2x1 positioned at rear
-- same texture map as simple_models_panel_1x2x1
+- texture map: same as simple_models_panel_1x2x1
 
 simple_models_stair_1x1x1:
 - for stair-like nodes with dimensions 1x1x1
@@ -65,6 +65,15 @@ simple_models_slope_1x1x1:
 
     <img src="textures/simple_models_sample_slope_1x1x1_map.png" />
 
+simple_models_slope_1x1x2:
+  - for slope-like nodes with dimensions 1x1x2
+
+  - preview:
+
+    <img src="previews/slope_1x1x2_model.png" />
+
+  - texture map: same as simple_models_slope_1x1x1
+
 #### Tables
 
 There are some tables for accessing pre-defined attributes:
@@ -72,50 +81,67 @@ There are some tables for accessing pre-defined attributes:
 ```
 simple_models.cube_1x2x1:
 - fields:
-	- mesh: "simple_models_cube_1x2x1.obj"
-	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5}
+  - mesh: "simple_models_cube_1x2x1.obj"
+  - box:  {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5}
 - alias: simple_models.cube
 
 simple_models.panel_1x2x1:
 - fields:
-	- mesh: "simple_models_panel_1x2x1.obj"
-	- box:  {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
+  - mesh: "simple_models_panel_1x2x1.obj"
+  - box:  {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
 - alias: simple_models.panel
 
 simple_models.panel_mid_1x2x1:
 - fields:
-	- mesh: "simple_models_panel_mid_1x2x1.obj"
-	- box:  {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025}
+  - mesh: "simple_models_panel_mid_1x2x1.obj"
+  - box:  {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025}
 - alias: simple_models.panel_mid
 
 simple_models.panel_rear_1x2x1:
 - fields:
-	- mesh: "simple_models_panel_rear_1x2x1.obj"
-	- box:  {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
+  - mesh: "simple_models_panel_rear_1x2x1.obj"
+  - box:  {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
 - alias: simple_models.panel_rear
 
 simple_models.stair_1x1x1:
 - fields:
-	- mesh: "simple_models_stair_1x1x1.obj"
-	- box:  {{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}, {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}}
+  - mesh: "simple_models_stair_1x1x1.obj"
+  - box:  {{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5}, {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5}}
 - alias: simple_models.stair
 
 simple_models.slope_1x1x1:
 - fields:
-	- mesh: "simple_models_slope_1x1x1.obj"
-	- box:  {
-			{-0.5, -0.5,  0.4, 0.5,  0.5, 0.5},
-			{-0.5, -0.5,  0.3, 0.5,  0.4, 0.5},
-			{-0.5, -0.5,  0.2, 0.5,  0.3, 0.5},
-			{-0.5, -0.5,  0.1, 0.5,  0.2, 0.5},
-			{-0.5, -0.5,  0.0, 0.5,  0.1, 0.5},
-			{-0.5, -0.5, -0.1, 0.5,  0.0, 0.5},
-			{-0.5, -0.5, -0.2, 0.5, -0.1, 0.5},
-			{-0.5, -0.5, -0.3, 0.5, -0.2, 0.5},
-			{-0.5, -0.5, -0.4, 0.5, -0.3, 0.5},
-			{-0.5, -0.5, -0.5, 0.5, -0.4, 0.5},
-		}
+  - mesh: "simple_models_slope_1x1x1.obj"
+  - box:  {
+      {-0.5, -0.5,  0.4, 0.5,  0.5, 0.5},
+      {-0.5, -0.5,  0.3, 0.5,  0.4, 0.5},
+      {-0.5, -0.5,  0.2, 0.5,  0.3, 0.5},
+      {-0.5, -0.5,  0.1, 0.5,  0.2, 0.5},
+      {-0.5, -0.5,  0.0, 0.5,  0.1, 0.5},
+      {-0.5, -0.5, -0.1, 0.5,  0.0, 0.5},
+      {-0.5, -0.5, -0.2, 0.5, -0.1, 0.5},
+      {-0.5, -0.5, -0.3, 0.5, -0.2, 0.5},
+      {-0.5, -0.5, -0.4, 0.5, -0.3, 0.5},
+      {-0.5, -0.5, -0.5, 0.5, -0.4, 0.5},
+    }
 - alias: simple_models.slope
+
+simple_models.slop_1x1x2:
+- fields:
+  - mesh: "simple_models_slope_1x1x2.obj"
+  - box:  {
+      {-0.5, -0.5,  1.3, 0.5,  0.5, 1.5},
+      {-0.5, -0.5,  1.1, 0.5,  0.4, 1.5},
+      {-0.5, -0.5,  0.9, 0.5,  0.3, 1.5},
+      {-0.5, -0.5,  0.7, 0.5,  0.2, 1.5},
+      {-0.5, -0.5,  0.5, 0.5,  0.1, 1.5},
+      {-0.5, -0.5,  0.3, 0.5,  0.0, 1.5},
+      {-0.5, -0.5,  0.1, 0.5, -0.1, 1.5},
+      {-0.5, -0.5, -0.1, 0.5, -0.2, 1.5},
+      {-0.5, -0.5, -0.3, 0.5, -0.3, 1.5},
+      {-0.5, -0.5, -0.5, 0.5, -0.4, 1.5},
+    }
+- alias: simple_models.slop_long
 ```
 
 #### Helper Methods
@@ -139,17 +165,17 @@ simple_models.door_outward_close
 Example usage:
 ```lua
 core.register_node("simple_models:door_l_closed", {
-	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-		simple_models:door_inward_open(pos, "simple_models:door_l_open")
-		return stack
-	end,
+  on_rightclick = function(pos, node, clicker, stack, pointed_thing)
+    simple_models:door_inward_open(pos, "simple_models:door_l_open")
+    return stack
+  end,
 })
 
 core.register_node("simple_models:door_r_closed", {
-	on_rightclick = function(pos, node, clicker, stack, pointed_thing)
-		simple_models:door_inward_open(pos, "simple_models:door_r_open", true)
-		return stack
-	end,
+  on_rightclick = function(pos, node, clicker, stack, pointed_thing)
+    simple_models:door_inward_open(pos, "simple_models:door_r_open", true)
+    return stack
+  end,
 })
 ```
 

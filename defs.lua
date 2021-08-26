@@ -93,6 +93,29 @@ simple_models.slope_1x1x1 = {
 	},
 }
 
+--- Long Slope
+--
+--  Alias: simple_models.slope_long
+--
+--  @table simple_models.slope_1x1x2
+--  @tfield string mesh simple_models_slope_1x1x2.obj
+--  @tfield table box
+simple_models.slope_1x1x2 = {
+	mesh = "simple_models_slope_1x1x2.obj",
+	box = {
+		{-0.5, -0.5,  1.3, 0.5,  0.5, 1.5},
+		{-0.5, -0.5,  1.1, 0.5,  0.4, 1.5},
+		{-0.5, -0.5,  0.9, 0.5,  0.3, 1.5},
+		{-0.5, -0.5,  0.7, 0.5,  0.2, 1.5},
+		{-0.5, -0.5,  0.5, 0.5,  0.1, 1.5},
+		{-0.5, -0.5,  0.3, 0.5,  0.0, 1.5},
+		{-0.5, -0.5,  0.1, 0.5, -0.1, 1.5},
+		{-0.5, -0.5, -0.1, 0.5, -0.2, 1.5},
+		{-0.5, -0.5, -0.3, 0.5, -0.3, 1.5},
+		{-0.5, -0.5, -0.5, 0.5, -0.4, 1.5},
+	},
+}
+
 
 -- aliases
 
@@ -102,3 +125,4 @@ simple_models.panel_mid = simple_models.panel_mid_1x2x1
 simple_models.panel_rear = simple_models.panel_rear_1x2x1
 simple_models.stair = simple_models.stair_1x1x1
 simple_models.slope = simple_models.slope_1x1x1
+simple_models.slope_long = simple_models.slope_1x1x2
