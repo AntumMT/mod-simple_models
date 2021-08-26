@@ -270,7 +270,7 @@ core.register_node("simple_models:slope", {
 core.register_node("simple_models:slope_long", {
 	description = "Long Slope",
 	drawtype = "mesh",
-	tiles = {"simple_models_sample_slope_1x1x1_map.png"},
+	tiles = {"simple_models_sample_slope_1x1x2_map.png"},
 	mesh = smodel.slope_long.mesh,
 	collision_box = {
 		type = "fixed",

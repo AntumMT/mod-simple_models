@@ -72,7 +72,9 @@ simple_models_slope_1x1x2:
 
     <img src="previews/slope_1x1x2_model.png" />
 
-  - texture map: same as simple_models_slope_1x1x1
+  - texture map:
+
+    <img src="textures/simple_models_sample_slope_1x1x2_map.png" />
 
 #### Tables
 
