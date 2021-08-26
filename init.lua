@@ -1,122 +1,21 @@
 
---- Model Definitions
---
---  @topic models
+simple_models = {}
 
-
---- Global table.
---
---  @table simple_models
-simple_models = {
-	--- Cube
-	--
-	--  Alias: simple_models.cube
-	--
-	--  @table simple_models.cube_1x2x1
-	--  @tfield string mesh simple_models_cube_1x2x1.obj
-	--  @tfield table box {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5}
-	cube_1x2x1 = {
-		mesh = "simple_models_cube_1x2x1.obj",
-		box = {-0.5, -0.5, -0.5, 0.5, 1.5, 0.5},
-	},
-
-	--- Panel
-	--
-	--  Alias: simple_models.panel
-	--
-	--  @table simple_models.panel_1x2x1
-	--  @tfield string mesh simple_models_panel_1x2x1.obj
-	--  @tfield table box {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45}
-	panel_1x2x1 = {
-		mesh = "simple_models_panel_1x2x1.obj",
-		box = {-0.5, -0.5, -0.5, 0.5, 1.5, -0.45},
-	},
-
-	--- Mid panel
-	--
-	--  Alias: simple_models.panel_mid
-	--
-	--  @table simple_models.panel_mid_1x2x1
-	--  @tfield string mesh simple_models_panel_mid_1x2x1.obj
-	--  @tfield table box {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025},
-	panel_mid_1x2x1 = {
-		mesh = "simple_models_panel_mid_1x2x1.obj",
-		box = {-0.5, -0.5, 0.025, 0.5, 1.5, -0.025},
-	},
-
-	--- Rear panel
-	--
-	--  Alias: simple_models.panel_rear
-	--
-	--  @table simple_models.panel_rear_1x2x1
-	--  @tfield string mesh simple_models_panel_rear_1x2x1.obj
-	--  @tfield table box {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5}
-	panel_rear_1x2x1 = {
-		mesh = "simple_models_panel_rear_1x2x1.obj",
-		box = {-0.5, -0.5, 0.45, 0.5, 1.5, 0.5},
-	},
-
-	--- Stair
-	--
-	--  Alias: simple_models.stair
-	--
-	--  @table simpel_models.stair_1x1x1
-	--  @tfield string mesh simple_models_stair_1x1x1.obj
-	--  @tfield table box {
-	--    {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
-	--    {-0.5, 0.0, 0.0, 0.5, 0.5, 0.5},
-	--  }
-	stair_1x1x1 = {
-		mesh = "simple_models_stair_1x1x1.obj",
-		box = {
-			{-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
-			{-0.5, 0.0, 0.0, 0.5, 0.5, 0.5},
-		},
-	},
-
-	--- Slope
-	--
-	--  Alias: simple_models.slope
-	--
-	--  @table simple_models.slope_1x1x1
-	--  @tfield string mesh simple_models_slope_1x1x1.obj
-	--  @tfield table box
-	slope_1x1x1 = {
-		mesh = "simple_models_slope_1x1x1.obj",
-		box = {
-			{-0.5, -0.5,  0.4, 0.5,  0.5, 0.5},
-			{-0.5, -0.5,  0.3, 0.5,  0.4, 0.5},
-			{-0.5, -0.5,  0.2, 0.5,  0.3, 0.5},
-			{-0.5, -0.5,  0.1, 0.5,  0.2, 0.5},
-			{-0.5, -0.5,  0.0, 0.5,  0.1, 0.5},
-			{-0.5, -0.5, -0.1, 0.5,  0.0, 0.5},
-			{-0.5, -0.5, -0.2, 0.5, -0.1, 0.5},
-			{-0.5, -0.5, -0.3, 0.5, -0.2, 0.5},
-			{-0.5, -0.5, -0.4, 0.5, -0.3, 0.5},
-			{-0.5, -0.5, -0.5, 0.5, -0.4, 0.5},
-		},
-	},
-}
-
-simple_models.cube = simple_models.cube_1x2x1
-simple_models.panel = simple_models.panel_1x2x1
-simple_models.panel_mid = simple_models.panel_mid_1x2x1
-simple_models.panel_rear = simple_models.panel_rear_1x2x1
-simple_models.stair = simple_models.stair_1x1x1
-simple_models.slope = simple_models.slope_1x1x1
-
---- Global table.
---
---  Alias of `simple_models`
---
---  @table smodel
 if not core.global_exists("smodel") then
 	smodel = simple_models
 end
 
 
 local modpath = core.get_modpath(core.get_current_modname())
-dofile(modpath .. "/api.lua")
+
+local scripts = {
+	"defs",
+	"api",
+}
+
+for _, script in ipairs(scripts) do
+	dofile(modpath .. "/" .. script .. ".lua")
+end
 
 if core.settings:get_bool("simple_models.enable_samples", false) then
 	dofile(modpath .. "/samples.lua")
