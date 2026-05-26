@@ -233,4 +233,7 @@ Sample nodes include:
 
 - [![ContentDB](https://content.luanti.org/packages/AntumDeluge/simple_models/shields/title/)](https://content.luanti.org/packages/AntumDeluge/simple_models/)
 - [Forum](https://forum.luanti.org/viewtopic.php?t=27176)
-- [Git repo](https://github.com/AntumMT/mod-simple_models)
+- Git repos:
+    - [Codeberg](https://codeberg.org/AntumLuanti/mod-simple_models)
+    - [GitHub](https://github.com/AntumMT/mod-simple_models)
+    - [GitLab](https://gitlab.com/AntumMT/mod-simple_models)
