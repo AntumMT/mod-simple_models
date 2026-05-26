@@ -4,7 +4,7 @@
 ---
 ### Description
 
-A set of very simple models for [Minetest](https://www.minetest.net/) & API for handling them.
+A set of very simple models for [Luanti](https://www.luanti.org/) & API for handling them.
 
 <img src="screenshot.png" width="350px" />
 
@@ -231,6 +231,6 @@ Sample nodes include:
 ---
 ### Links
 
-- [![ContentDB](https://content.minetest.net/packages/AntumDeluge/simple_models/shields/title/)](https://content.minetest.net/packages/AntumDeluge/simple_models/)
-- [Forum](https://forum.minetest.net/viewtopic.php?t=27176)
+- [![ContentDB](https://content.luanti.org/packages/AntumDeluge/simple_models/shields/title/)](https://content.luanti.org/packages/AntumDeluge/simple_models/)
+- [Forum](https://forum.luanti.org/viewtopic.php?t=27176)
 - [Git repo](https://github.com/AntumMT/mod-simple_models)
