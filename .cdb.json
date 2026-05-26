@@ -5,8 +5,10 @@
 	"short_description": "Very simple models.",
 	"license": "MIT",
 	"media_license": "CC0-1.0",
-	"tags": ["building", "decorative"],
-	"repo": "https://github.com/AntumMT/mod-simple_models",
-	"issue_tracker": "https://github.com/AntumMT/mod-simple_models/issues",
+	"dev_state": "ACTIVELY_DEVELOPED",
+	"ai_disclosure": "NONE",
+	"tags": ["building", "decorative", "developer_tools", "library"],
+	"repo": "https://codeberg.org/AntumLuanti/mod-simple_models",
+	"issue_tracker": "https://codeberg.org/AntumLuanti/mod-simple_models/issues",
 	"forums": 27176
 }
