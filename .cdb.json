@@ -1,14 +1,19 @@
 {
 	"type": "MOD",
-	"name": "simple_models",
 	"title": "Simple Models",
+	"name": "simple_models",
 	"short_description": "Very simple models.",
-	"license": "MIT",
-	"media_license": "CC0-1.0",
-	"dev_state": "ACTIVELY_DEVELOPED",
+	"dev_state": "MAINTENANCE_ONLY",
 	"ai_disclosure": "NONE",
 	"tags": ["building", "decorative", "developer_tools", "library"],
+	"content_warnings": null,
+	"license": "MIT",
+	"media_license": "CC0-1.0",
 	"repo": "https://codeberg.org/AntumLuanti/mod-simple_models",
+	"website": null,
 	"issue_tracker": "https://codeberg.org/AntumLuanti/mod-simple_models/issues",
-	"forums": 27176
+	"forums": 27176,
+	"video_url": null,
+	"donate_url": null,
+	"translation_url": null
 }
